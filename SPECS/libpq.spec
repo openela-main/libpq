@@ -3,7 +3,7 @@
 
 Summary: PostgreSQL client library
 Name: libpq
-Version: %{majorversion}.11
+Version: %{majorversion}.20
 Release: 1%{?dist}
 
 License: PostgreSQL
@@ -130,6 +130,9 @@ find_lang_bins %name-devel.lst  pg_config
 
 
 %changelog
+* Tue Feb 18 2025 Ales Nezbeda <anezbeda@redhat.com> - 13.20-1
+- Update to 13.20
+
 * Wed Jun 21 2023 Masahiro Matsuya <mmatsuya@redhat.com> - 13.11-1
 - Rebase to 13.11
   Resolves: #2171369
