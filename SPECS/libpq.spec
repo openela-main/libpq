@@ -4,7 +4,7 @@
 Summary: PostgreSQL client library
 Name: libpq
 Version: %{majorversion}.23
-Release: 1%{?dist}
+Release: 3%{?dist}
 
 License: PostgreSQL
 Url: http://www.postgresql.org/
@@ -17,8 +17,17 @@ Source1: https://ftp.postgresql.org/pub/source/v%{version}/postgresql-%{version}
 Patch1: libpq-10.3-rpm-pgsql.patch
 Patch2: libpq-10.3-var-run-socket.patch
 Patch3: libpq-12.1-symbol-versioning.patch
+Patch4: postgresql-CVE-2026-6478.patch
+Patch5: postgresql-CVE-2026-6637.patch
+Patch6: postgresql-CVE-2026-6477.patch
+Patch7: postgresql-CVE-2026-6475.patch
+Patch8: postgresql-CVE-2026-6473.patch
 
 BuildRequires: gcc
+BuildRequires: perl-interpreter
+BuildRequires: perl-FindBin
+BuildRequires: perl-File-Compare
+BuildRequires: perl-lib
 BuildRequires: glibc-devel bison flex gawk
 BuildRequires: zlib-devel
 BuildRequires: openssl-devel
@@ -131,6 +140,15 @@ find_lang_bins %name-devel.lst  pg_config
 
 
 %changelog
+* Fri Jul 17 2026 Filip Janus <fjanus@redhat.com> - 13.23-3
+- Add BuildRequires for perl-File-Compare needed by genbki.pl
+- Related: RHEL-192239
+
+* Thu Jul 16 2026 Filip Janus <fjanus@redhat.com> - 13.23-2
+- Backport fixes for CVE-2026-6478, CVE-2026-6637, CVE-2026-6477,
+  CVE-2026-6475, CVE-2026-6473 from PostgreSQL 14.23
+- Resolves: RHEL-192239
+
 * Mon Dec 01 2025 Filip Janus <fjanus@redhat.com> - 13.23-1
 - Rebase to upstream release 13.23
 - Resolves: RHEL-131279 (CVE-2025-12818)
