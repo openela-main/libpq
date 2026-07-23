@@ -3,8 +3,8 @@
 
 Summary: PostgreSQL client library
 Name: libpq
-Version: %{majorversion}.11
-Release: 3%{?dist}
+Version: %{majorversion}.14
+Release: 1%{?dist}
 
 License: PostgreSQL
 Url: http://www.postgresql.org/
@@ -140,6 +140,10 @@ find_lang_bins %name-devel.lst  pg_config
 %_libdir/pkgconfig/libpq.pc
 
 %changelog
+* Mon Jul 20 2026 Filip Janus <fjanus@redhat.com> - 16.14-1
+- Rebase to upstream release 16.14
+- Resolves: RHEL-192240
+
 * Mon Dec 01 2025 Filip Janus <fjanus@redhat.com> - 16.11-3
 - Release bump
 
